@@ -1,0 +1,31 @@
+{
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSaveTimeout": 4000,
+  "prettier.eslintIntegration": true,
+  "cSpell.words": [
+    "Arial",
+    "BITBUCKET",
+    "Consolas",
+    "Helvetica",
+    "Menlo",
+    "Netlify",
+    "PUSO",
+    "Segoe",
+    "Workspaces",
+    "brea",
+    "browserslist",
+    "circleci",
+    "dubnium",
+    "editorconfig",
+    "formik",
+    "fschultz",
+    "gatsbyjs",
+    "jsonld",
+    "noextraneous",
+    "nums",
+    "pnum",
+    "prettierrc",
+    "repo"
+  ],
+  "cSpell.allowCompoundWords": true
+}
