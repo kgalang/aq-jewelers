@@ -30,6 +30,12 @@ brew install yarn
 
 Feel free to use any terminal. However, if pair programming with LiveShare you will need to use the integrated VSCode terminals.
 
+7. Use [gatsby-cli] (https://www.gatsbyjs.org/tutorial/part-zero/)
+
+```sh
+npm install -g gatsby-cli
+```
+
 ## Development Process
 
 We are using [Netlify](https://www.netlify.com/) for CI so the process is a little different. First, always code on a branch and put in a PR against `develop`. **NEVER PR AGAINST MASTER OR COMMIT TO MASTER**
@@ -40,6 +46,11 @@ We have two environments:
 `master`: This serves as production and only tested code from `develop` goes into here
 
 The reason is because each branch pushed to the upstream will be built and deployed by Netlify, including features branches! This is great for reviewing PRs and enabling you to test branches in a production environment.
+
+Run site with
+```sh
+gatsby develop
+```
 
 ## Coding Standards with VSCode
 
