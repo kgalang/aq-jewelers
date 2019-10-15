@@ -1,15 +1,16 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
+import { Layout } from '../components/Layout'
 
 const About = ({ data }) => (
-  <div>
+  <Layout>
     <div
       dangerouslySetInnerHTML={{
         __html: data.aboutJson.content.childMarkdownRemark.html,
       }}
     />
-  </div>
+  </Layout>
 )
 
 About.propTypes = {

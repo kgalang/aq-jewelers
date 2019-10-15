@@ -1,12 +1,13 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
+import { Layout } from '../components/Layout'
 
 const Index = ({ data }) => (
-  <div>
+  <Layout>
     {data.homeJson.content.childMarkdownRemark.rawMarkdownBody}
     {JSON.stringify(data.homeJson.gallery)}
-  </div>
+  </Layout>
 )
 
 Index.propTypes = {
