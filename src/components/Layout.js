@@ -1,8 +1,7 @@
 import React from 'react'
 import { ThemeProvider } from 'styled-components'
-import { GlobalStyle } from '../styles/global'
-import { theme } from '../styles/theme'
-import { NavBar } from './NavBar'
+import { GlobalStyle, theme } from '../styles'
+import { NavBar } from './'
 
 export const Layout = ({ children }) => {
   return (
