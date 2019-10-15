@@ -19,7 +19,7 @@
     "no-unused-vars": ["error", { "argsIgnorePattern": "^_" }],
     "no-sync": ["off", { "allowRootLevel": true }],
     "jest/no-disabled-tests": ["off"],
-    "react/prop-types": "warn"
+    "react/prop-types": "ignore"
   },
   "extends": [
     "eslint:recommended",
