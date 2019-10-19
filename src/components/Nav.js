@@ -120,7 +120,7 @@ const RoutesContainer = styled.div`
   }
 
   div:last-child {
-    border-right: none;
+    border: none;
   }
 
   ${media.forSmallOnly`
@@ -136,8 +136,13 @@ const RoutesContainer = styled.div`
     z-index: 20;
 
     div {
+      width: 10%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       border-right: none;
-      margin: 1rem 0;
+      border-bottom: 1px solid ${props => props.theme.primaryColor};
+      padding: 1rem 0;
     }
   `}
 `
