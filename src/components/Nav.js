@@ -1,7 +1,7 @@
 import React from 'react'
 import styled, { css } from 'styled-components'
 import { media } from '../styles'
-import { Hamburger } from './'
+import { Hamburger } from '../components'
 import { Link } from 'gatsby'
 
 const ROUTES = [

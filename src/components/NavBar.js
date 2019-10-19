@@ -1,5 +1,5 @@
 import React from 'react'
-import { Nav } from './'
+import { Nav } from '../components/Nav'
 import styled from 'styled-components'
 
 const StyledNav = styled(Nav)`
