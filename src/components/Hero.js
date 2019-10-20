@@ -1,33 +1,46 @@
 import React from 'react'
 import styled from 'styled-components'
 import { media } from '../styles'
+import { Button } from '../components'
 
 const HeroContainer = styled.div`
-  height: 20rem;
+  height: 50vh;
+  min-height: 300px;
   width: 100%;
   overflow: hidden;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  background: url(${props => props.backgroundImage}) no-repeat top;
+  background: url(${props => props.backgroundImage}) no-repeat top left;
   background-size: cover;
+
+  ${media.forSmallMediumOnly`
+    height: 250px;
+  `}
 `
 
 const HeroContentContainer = styled.div`
   width: 50%;
-  height: 50%;
+  height: 80%;
   display: flex;
+  flex-direction: column;
+  align-items: center;
   justify-content: center;
+
+  ${media.forSmallMediumOnly`
+    height: 100%;
+    width: 100%;
+  `}
 `
 
 const HeroHeaderText = styled.h1`
   color: ${props => props.theme.white};
   font-size: 3rem;
-  margin-bottom: 1rem;
+  padding: 2rem 0;
 
-  ${media.forSmallMediumOnly`
-    font-size: 2rem;
-  `}
+  ${media.forSmallOnly`
+    font-size: 3rem;
+  `};
 `
 
 export const Hero = ({ backgroundImage }) => {
@@ -35,6 +48,9 @@ export const Hero = ({ backgroundImage }) => {
     <HeroContainer backgroundImage={backgroundImage}>
       <HeroContentContainer>
         <HeroHeaderText>Lorum Ipsum</HeroHeaderText>
+        <div>
+          <Button>Learn More</Button>
+        </div>
       </HeroContentContainer>
     </HeroContainer>
   )
