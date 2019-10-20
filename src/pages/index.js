@@ -4,10 +4,7 @@ import { graphql } from 'gatsby'
 import { Layout } from '../components/Layout'
 
 const Index = ({ data }) => (
-  <Layout>
-    {data.homeJson.content.childMarkdownRemark.rawMarkdownBody}
-    {JSON.stringify(data.homeJson.gallery)}
-  </Layout>
+  <Layout>{JSON.stringify(data.allProductsJson.edges[0].node.products)}</Layout>
 )
 
 Index.propTypes = {
@@ -17,23 +14,13 @@ Index.propTypes = {
 export default Index
 
 export const query = graphql`
-  query HomepageQuery {
-    homeJson {
-      title
-      content {
-        childMarkdownRemark {
-          html
-          rawMarkdownBody
-        }
-      }
-      gallery {
-        title
-        copy
-        image {
-          childImageSharp {
-            fluid(maxHeight: 500, quality: 90) {
-              ...GatsbyImageSharpFluid_withWebp
-            }
+  query ProductsQuery {
+    allProductsJson(limit: 8) {
+      edges {
+        node {
+          products {
+            name
+            price
           }
         }
       }
