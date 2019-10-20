@@ -1,0 +1,20 @@
+{
+  "title": "Products",
+  "products": [
+    {
+      "name": "Product 1",
+      "price": "$1000",
+      "image": "../images/gallery/Tile-1_1920.jpg"
+    },
+    {
+      "name": "Product 2",
+      "price": "$3000",
+      "image": "../images/gallery/Tile-2_1920.jpg"
+    },
+    {
+      "name": "Product 3",
+      "price": "$5000",
+      "image": "../images/gallery/Tile-3_1920.jpg"
+    }
+  ]
+}
