@@ -1,13 +1,23 @@
 import React from 'react'
 import styled, { css } from 'styled-components'
 import { media } from '../styles'
-import { Hamburger } from './'
+import { Hamburger } from '../components'
 import { Link } from 'gatsby'
+import HorizontalLogo from '../assets/horizontal-logo.svg'
+import InitialsLogo from '../assets/aq-logo.svg'
 
 const ROUTES = [
   {
     route: '/',
     text: 'Home',
+    as: Link,
+    get selected() {
+      return this.route === location.pathname
+    },
+  },
+  {
+    route: '/services',
+    text: 'Services',
     as: Link,
     get selected() {
       return this.route === location.pathname
@@ -21,20 +31,58 @@ const ROUTES = [
       return this.route === location.pathname
     },
   },
+  {
+    route: '/contact',
+    text: 'Contact',
+    as: Link,
+    get selected() {
+      return this.route === location.pathname
+    },
+  },
 ]
 
 const NavContainer = styled.div`
-  height: ${props => props.theme.desktopHeaderHeight};
-  background-color: ${props => props.theme.primaryColor};
-  color: ${props => props.theme.white};
+  /* height: ${props => props.theme.desktopHeaderHeight}; */
+  background-color: ${props => props.theme.white};
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   padding: 0 2rem;
 
   ${media.forSmallOnly`
     height: ${props => props.theme.mobileHeaderHeight};
     padding: 0 1rem;
+    flex-direction: row;
+    justify-content: space-between;
+  `}
+`
+
+const LogoContainer = styled.div`
+  height: 3rem;
+  margin: 1rem 0;
+
+  ${media.forSmallOnly`
+    padding: 0.3rem 0;
+  `}
+`
+
+const StyledHorizontalLogo = styled(HorizontalLogo)`
+  fill: ${props => props.theme.primaryColor};
+  height: 100%;
+
+  ${media.forSmallOnly`
+    display: none;
+  `}
+`
+
+const StyledInitialsLogo = styled(InitialsLogo)`
+  display: none;
+
+  ${media.forSmallOnly`
+    fill: ${props => props.theme.primaryColor};
+    height: 100%;
+    display: initial;
   `}
 `
 
@@ -45,44 +93,11 @@ const NavOptionsContainer = styled.div`
 `
 
 const NavLinkStyles = css`
-  color: ${props => props.theme.white} !important;
+  color: ${props => props.theme.primaryColor} !important;
   text-decoration: none;
-  margin-right: 1rem;
+  margin: 0 1.7rem;
   position: relative;
   cursor: pointer;
-
-  &:last-child {
-    margin-right: 0;
-  }
-
-  /* &:before, */
-  &:after {
-    content: '';
-    position: absolute;
-    bottom: -7px;
-    width: 0px;
-    height: 3px;
-    margin: 5px 0 0;
-    transition: all 0.4s ease-in-out;
-    opacity: 0;
-    left: 0;
-  }
-
-  &:hover {
-    &:after {
-      opacity: 1;
-      background-color: ${props => props.theme.white};
-      width: 100%;
-    }
-  }
-
-  &.selected {
-    &:after {
-      opacity: 1;
-      background-color: ${props => props.theme.white};
-      width: 100%;
-    }
-  }
 
   ${media.forSmallOnly`
     color: ${props => props.theme.defaultFontColor} !important;
@@ -94,8 +109,19 @@ const NavLinkStyles = css`
 `
 
 const RoutesContainer = styled.div`
+  width: 100%;
   display: flex;
   align-items: center;
+  margin-bottom: 1rem;
+  /* background-color: ${props => props.theme.lightBackgroundColor}; */
+
+  div {
+    border-right: 1px solid ${props => props.theme.primaryColor};
+  }
+
+  div:last-child {
+    border: none;
+  }
 
   ${media.forSmallOnly`
     position: absolute;
@@ -108,6 +134,16 @@ const RoutesContainer = styled.div`
     flex-direction: column;
     padding: 1rem;
     z-index: 20;
+
+    div {
+      width: 10%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-right: none;
+      border-bottom: 1px solid ${props => props.theme.primaryColor};
+      padding: 1rem 0;
+    }
   `}
 `
 
@@ -120,13 +156,14 @@ export const NavComponent = ({
   containerClassName = '',
   containerStyle = {},
   navOptionsStyle = {},
-  renderLeftSection = () => null,
 }) => {
   const [hamburgerOpen, setHamburgerOpen] = React.useState(false)
   return (
     <NavContainer className={containerClassName} style={containerStyle}>
-      {renderLeftSection()}
-
+      <LogoContainer>
+        <StyledHorizontalLogo />
+        <StyledInitialsLogo />
+      </LogoContainer>
       <NavOptionsContainer style={navOptionsStyle}>
         <Hamburger
           open={hamburgerOpen}
@@ -147,19 +184,20 @@ export const NavComponent = ({
               const RouteLink = createRouteLink(as)
 
               return (
-                <RouteLink
-                  to={route}
-                  key={route}
-                  className={selected ? 'selected' : ''}
-                  onClick={() => {
-                    setHamburgerOpen(false)
+                <div key={route}>
+                  <RouteLink
+                    to={route}
+                    className={selected ? 'selected' : ''}
+                    onClick={() => {
+                      setHamburgerOpen(false)
 
-                    onClick({ route, text, ...rest })
-                  }}
-                  {...rest}
-                >
-                  {renderLinkContent ? renderLinkContent() : text}
-                </RouteLink>
+                      onClick({ route, text, ...rest })
+                    }}
+                    {...rest}
+                  >
+                    {renderLinkContent ? renderLinkContent() : text}
+                  </RouteLink>
+                </div>
               )
             },
           )}

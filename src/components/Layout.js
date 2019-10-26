@@ -1,7 +1,7 @@
 import React from 'react'
 import { ThemeProvider } from 'styled-components'
 import { GlobalStyle, theme } from '../styles'
-import { NavBar } from './'
+import { Nav } from '../components/Nav'
 
 export const Layout = ({ children }) => {
   return (
@@ -10,7 +10,7 @@ export const Layout = ({ children }) => {
         <div>
           {/* GlobalStyle doesn't render something to the DOM, it just injects global styles for styled-components */}
           <GlobalStyle />
-          <NavBar />
+          <Nav />
           {children}
         </div>
       </ThemeProvider>

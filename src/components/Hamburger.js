@@ -25,7 +25,7 @@ const HamburgerWrapper = styled.div`
 
   > div {
     position: relative;
-    background-color: ${props => props.theme.white};
+    background-color: ${props => props.theme.primaryColor};
     width: 20px;
     height: 3px;
     border-width: 1px 0;

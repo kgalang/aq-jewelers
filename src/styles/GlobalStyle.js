@@ -17,6 +17,7 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   body {
+    margin: 0;
     font-family: ${props => props.theme.defaultFont};
     color: ${props => props.theme.defaultFontColor};
 
@@ -53,6 +54,16 @@ export const GlobalStyle = createGlobalStyle`
       &:visited {
         color: ${props => props.theme.linkColor};
       }
+    }
+
+    button {
+      background: none;
+      color: inherit;
+      border: none;
+      padding: 0;
+      font: inherit;
+      cursor: pointer;
+      outline: inherit;
     }
 
     ol ol,
