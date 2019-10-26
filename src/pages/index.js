@@ -6,7 +6,7 @@ import HeroImage from '../../static/Hero_1920.jpg'
 
 const Index = ({ data }) => (
   <Layout>
-    <Hero backgroundImage={HeroImage} />
+    <Hero backgroundImage={HeroImage} text='Lorum Ipsum' buttonText='Learn More' />
     {data.homeJson.content.childMarkdownRemark.rawMarkdownBody}
     {JSON.stringify(data.homeJson.gallery)}
   </Layout>

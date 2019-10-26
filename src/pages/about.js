@@ -1,10 +1,12 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
-import { Layout } from '../components/Layout'
+import { Layout, Hero } from '../components'
+import HeroImage from '../../static/Hero_1920.jpg'
 
 const About = ({ data }) => (
   <Layout>
+    <Hero backgroundImage={HeroImage} text='About Us' />
     <div
       dangerouslySetInnerHTML={{
         __html: data.aboutJson.content.childMarkdownRemark.html,

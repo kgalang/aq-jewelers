@@ -43,14 +43,12 @@ const HeroHeaderText = styled.h1`
   `};
 `
 
-export const Hero = ({ backgroundImage }) => {
+export const Hero = ({ backgroundImage, text, buttonText }) => {
   return (
     <HeroContainer backgroundImage={backgroundImage}>
       <HeroContentContainer>
-        <HeroHeaderText>Lorum Ipsum</HeroHeaderText>
-        <div>
-          <Button>Learn More</Button>
-        </div>
+        {text && <HeroHeaderText>{text}</HeroHeaderText>}
+        {buttonText && <div><Button>{buttonText}</Button></div>}
       </HeroContentContainer>
     </HeroContainer>
   )
