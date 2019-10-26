@@ -11,6 +11,17 @@ export const ButtonStyles = styled.button`
   transition: ${props => props.theme.defaultTransition};
   padding: 0.75rem 1.5rem;
 
+  &:hover {
+    box-shadow: 0 1px 12px 0 rgba(0, 0, 0, 0.16);
+    transform: translate(0px, -2px);
+  }
+
+  &focus,
+  &:active {
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.16);
+    transform: translate(0px, 2px);
+  }
+
   ${({ disabled }) =>
     disabled &&
     css`
