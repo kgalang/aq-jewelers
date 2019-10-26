@@ -1,4 +1,7 @@
 const siteConfig = require('./site-config')
+require('dotenv').config({
+  path: '.env',
+})
 
 module.exports = {
   siteMetadata: {
@@ -27,6 +30,13 @@ module.exports = {
         rule: {
           include: /assets/,
         },
+      },
+    },
+    {
+      resolve: 'gatsby-source-prismic',
+      options: {
+        repositoryName: 'aq-jewelers',
+        accessToken: `${process.env.PRISMIC_TOKEN}`,
       },
     },
   ],
