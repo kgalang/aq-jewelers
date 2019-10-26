@@ -1,10 +1,12 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
-import { Layout } from '../components/Layout'
+import { Layout, Hero } from '../components'
+import HeroImage from '../../static/Hero_1920.jpg'
 
 const Index = ({ data }) => (
   <Layout>
+    <Hero backgroundImage={HeroImage} text='Lorum Ipsum' buttonText='Learn More' />
     {data.homeJson.content.childMarkdownRemark.rawMarkdownBody}
     {JSON.stringify(data.homeJson.gallery)}
   </Layout>
