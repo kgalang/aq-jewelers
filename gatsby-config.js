@@ -29,5 +29,28 @@ module.exports = {
         },
       },
     },
+    {
+      resolve: 'gatsby-source-prismic',
+      options: {
+        repositoryName: 'aq-jewelers',
+        accessToken: `${process.env.PRISMIC_TOKEN}`,
+      },
+    },
+    {
+      resolve: 'gatsby-plugin-google-analytics',
+      options: {
+        trackingId: `${process.env.GOOGLE_ANALYTICS_ID}`,
+        // Defines where to place the tracking script - `true` in the head and `false` in the body
+        head: false,
+        // Setting this parameter is optional
+        anonymize: true,
+        // Setting this parameter is also optional
+        respectDNT: true,
+        // Avoids sending pageview hits from custom paths
+        exclude: ['/preview/**'],
+        // Any additional optional fields
+        siteSpeedSampleRate: 25,
+      },
+    },
   ],
 }
