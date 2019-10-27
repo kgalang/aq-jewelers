@@ -12,6 +12,11 @@ const AccordionHeader = styled.h1`
   color: ${props => props.theme.primaryColor}
   text-align: center;
   padding: 20px;
+
+  label:hover {
+    cursor: pointer;
+  }
+
   input {
     display: none;
   }
