@@ -22,6 +22,7 @@ const AccordionHeader = styled.h1`
   }
 `
 
+// Placeholder for any necessary styles
 const AccordionText = styled.p``
 
 class AccordionCard extends React.Component {

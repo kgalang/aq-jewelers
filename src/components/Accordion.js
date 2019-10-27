@@ -1,10 +1,7 @@
 import React from 'react'
-import styled from 'styled-components'
 import AccordionCard from './AccordionCard'
 
-const AccordionContainer = styled.div``
-
-class AccordionContent extends React.Component {
+class AccordionContainer extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -67,9 +64,7 @@ class AccordionContent extends React.Component {
 export const Accordion = () => {
   return (
     <div>
-      <AccordionContainer>
-        <AccordionContent></AccordionContent>
-      </AccordionContainer>
+      <AccordionContainer></AccordionContainer>
     </div>
   )
 }
