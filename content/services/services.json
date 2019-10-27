@@ -1,0 +1,22 @@
+{
+  "title": "Services",
+  "content": "services.md",
+  "accordion": [
+    {
+      "title": "Custom Designs",
+      "body": "Custom designs text."
+    },
+    {
+      "title": "Jewelry Repair",
+      "body": "Jewelry repairs text."
+    },
+    {
+      "title": "Diamond Process",
+      "body": "Diamond process text."
+    },
+    {
+      "title": "Jewelry Care",
+      "body": "Jewelry care text."
+    }
+  ]
+}
