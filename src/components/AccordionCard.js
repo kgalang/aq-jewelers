@@ -11,7 +11,7 @@ const AccordionCardContainer = styled.div`
 const AccordionHeader = styled.h1`
   color: ${props => props.theme.primaryColor}
   text-align: center;
-  padding: 20px;
+  padding: 1rem;
 
   label:hover {
     cursor: pointer;

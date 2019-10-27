@@ -4,10 +4,6 @@ import AccordionCard from './AccordionCard'
 
 const AccordionContainer = styled.div``
 
-// const AccordionCard = styled.div`
-//   border-bottom: 1px solid ${props => props.theme.primaryColor};
-// `
-
 class AccordionContent extends React.Component {
   constructor(props) {
     super(props)
