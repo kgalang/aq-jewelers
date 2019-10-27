@@ -9,14 +9,15 @@ const NotFound = () => (
       data-netlify="true"
       data-netlify-honeypot="bot-field"
     >
+      <input type="hidden" name="bot-field" />
       <label htmlFor="name">
-        Name: <input type="text" name="name" />
+        Name: <input type="text" name="name" id="name" />
       </label>
       <label htmlFor="email">
-        Your Email: <input type="email" name="email" />
+        Your Email: <input type="email" name="email" id="email" />
       </label>
       <label htmlFor="message">
-        Message: <textarea name="message" />
+        Message: <textarea name="message" id="message" />
       </label>
       <button type="submit">Submit</button>
     </form>
