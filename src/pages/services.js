@@ -6,7 +6,7 @@ import HeroImage from '../../static/Hero_1920.jpg'
 const Services = () => (
   <Layout>
     <Hero backgroundImage={HeroImage} text="Services" />
-    <Accordion></Accordion>
+    <Accordion />
   </Layout>
 )
 
