@@ -6,9 +6,12 @@ import HeroImage from '../../static/Hero_1920.jpg'
 
 const Index = ({ data }) => (
   <Layout>
-    <Hero backgroundImage={HeroImage} text='Lorum Ipsum' buttonText='Learn More' />
-    {data.homeJson.content.childMarkdownRemark.rawMarkdownBody}
-    {JSON.stringify(data.homeJson.gallery)}
+    <Hero
+      backgroundImage={HeroImage}
+      text="Lorum Ipsum"
+      buttonText="Learn More"
+    />
+    {JSON.stringify(data)}
   </Layout>
 )
 
@@ -20,21 +23,28 @@ export default Index
 
 export const query = graphql`
   query HomepageQuery {
-    homeJson {
-      title
-      content {
-        childMarkdownRemark {
-          html
-          rawMarkdownBody
+    prismicHomepage {
+      data {
+        hero_image {
+          alt
+          url
         }
-      }
-      gallery {
-        title
-        copy
-        image {
-          childImageSharp {
-            fluid(maxHeight: 500, quality: 90) {
-              ...GatsbyImageSharpFluid_withWebp
+        hero_text {
+          text
+        }
+        products {
+          related_products {
+            document {
+              data {
+                price
+                product_name {
+                  text
+                }
+                image {
+                  url
+                  alt
+                }
+              }
             }
           }
         }
