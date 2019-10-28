@@ -11,33 +11,21 @@ const ROUTES = [
     route: '/',
     text: 'Home',
     as: Link,
-    get selected() {
-      return this.route === location.pathname
-    },
   },
   {
     route: '/services',
     text: 'Services',
     as: Link,
-    get selected() {
-      return this.route === location.pathname
-    },
   },
   {
     route: '/about',
     text: 'About',
     as: Link,
-    get selected() {
-      return this.route === location.pathname
-    },
   },
   {
     route: '/contact',
     text: 'Contact',
     as: Link,
-    get selected() {
-      return this.route === location.pathname
-    },
   },
 ]
 
@@ -175,7 +163,6 @@ export const NavComponent = ({
               route,
               text,
               as = 'a',
-              selected = false,
               renderLinkContent,
               onClick = () => null,
               ...rest
@@ -187,7 +174,6 @@ export const NavComponent = ({
                 <div key={route}>
                   <RouteLink
                     to={route}
-                    className={selected ? 'selected' : ''}
                     onClick={() => {
                       setHamburgerOpen(false)
 
