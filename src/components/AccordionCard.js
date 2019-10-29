@@ -8,60 +8,44 @@ const AccordionCardContainer = styled.div`
   }
 `
 
-const AccordionHeader = styled.h1`
-  color: ${props => props.theme.primaryColor}
-  text-align: center;
-  padding: 1rem;
+const AccordionHeader = styled.div`
+  h1 {
+    color: ${props => props.theme.primaryColor};
+    text-align: center;
+    padding: 1rem;
 
-  label:hover {
-    cursor: pointer;
-  }
-
-  input {
-    display: none;
+    label:hover {
+      cursor: pointer;
+    }
   }
 `
 
 // Placeholder for any necessary styles
-const AccordionText = styled.p``
+const AccordionText = styled.p`
+  display: ${props => (props.open ? 'inherit' : 'none')};
+`
 
 class AccordionCard extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      displayContent: JSON.parse(this.props.open),
+      open: this.props.open,
     }
-
-    this.handleInputChange = this.handleInputChange.bind(this)
   }
 
-  handleInputChange(event) {
-    const target = event.target
-    const value = target.type === 'checkbox' ? target.checked : target.value
-    const name = target.name
-
+  toggleOpen = () => {
     this.setState({
-      [name]: value,
+      open: !this.state.open,
     })
   }
 
   render() {
     return (
       <AccordionCardContainer>
-        <AccordionHeader>
-          <label>
-            {this.props.header}
-            <input
-              name="displayContent"
-              type="checkbox"
-              checked={this.state.displayContent}
-              onChange={this.handleInputChange}
-            />
-          </label>
+        <AccordionHeader onClick={this.toggleOpen}>
+          <h1>{this.props.header}</h1>
         </AccordionHeader>
-        {this.state.displayContent && (
-          <AccordionText>{this.props.text}</AccordionText>
-        )}
+        <AccordionText open={this.state.open}>{this.props.text}</AccordionText>
       </AccordionCardContainer>
     )
   }

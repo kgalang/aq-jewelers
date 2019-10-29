@@ -30,41 +30,37 @@ class AccordionContainer extends React.Component {
         eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
         ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
         aliquip ex ea commodo consequat."
-          open="true"
-        ></AccordionCard>
+          open={true}
+        />
         <AccordionCard
           header="Jewlery Repair"
           text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
         eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
         ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
         aliquip ex ea commodo consequat."
-          open="false"
-        ></AccordionCard>
+          open={false}
+        />
         <AccordionCard
           header="Diamond Process"
           text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
         eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
         ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
         aliquip ex ea commodo consequat."
-          open="false"
-        ></AccordionCard>
+          open={false}
+        />
         <AccordionCard
           header="Jewlery Care"
           text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
         eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
         ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
         aliquip ex ea commodo consequat."
-          open="false"
-        ></AccordionCard>
+          open={false}
+        />
       </div>
     )
   }
 }
 
 export const Accordion = () => {
-  return (
-    <div>
-      <AccordionContainer></AccordionContainer>
-    </div>
-  )
+  return <AccordionContainer />
 }
