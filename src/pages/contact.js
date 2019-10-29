@@ -1,7 +1,7 @@
 import React from 'react'
 import { Layout } from '../components/Layout'
 
-const NotFound = () => (
+const ContactPage = () => (
   <Layout>
     <form
       name="contact"
@@ -24,4 +24,4 @@ const NotFound = () => (
   </Layout>
 )
 
-export default NotFound
+export default ContactPage
