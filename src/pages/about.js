@@ -1,15 +1,21 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
-import { Layout, Hero } from '../components'
+import { Layout, Hero, AboutContent } from '../components'
 import HeroImage from '../../static/Hero_1920.jpg'
+import AboutImage from '../../static/About-Us_1920.jpg'
 
 const About = ({ data }) => (
   <Layout>
-    <Hero backgroundImage={HeroImage} text='About Us' />
+    <Hero backgroundImage={HeroImage} text="About Us" />
+    <AboutContent
+      header={data.aboutJson.content.header}
+      body={data.aboutJson.content.body}
+      imgSrc={AboutImage}
+    />
     <div
       dangerouslySetInnerHTML={{
-        __html: data.aboutJson.content.childMarkdownRemark.html,
+        __html: data.aboutJson.content.markdown.childMarkdownRemark.html,
       }}
     />
   </Layout>
@@ -26,9 +32,13 @@ export const query = graphql`
     aboutJson {
       title
       content {
-        childMarkdownRemark {
-          html
+        markdown {
+          childMarkdownRemark {
+            html
+          }
         }
+        header
+        body
       }
     }
   }

@@ -1,4 +1,8 @@
 {
   "title": "About",
-  "content": "content.md"
+  "content": {
+    "markdown": "content.md",
+    "header": "About Us",
+    "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Enim blandit volutpat maecenas volutpat. Viverra mauris in aliquam sem fringilla ut morbi. Sem integer vitae justo eget magna fermentum iaculis eu non."
+  }
 }
