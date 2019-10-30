@@ -7,7 +7,7 @@ import HeroImage from '../../static/Hero_1920.jpg'
 const Services = ({ data }) => (
   <Layout>
     <Hero backgroundImage={HeroImage} text="Services" />
-    <Accordion data={data.servicesJson.accordion} />
+    <Accordion content={data.servicesJson.accordion} />
   </Layout>
 )
 

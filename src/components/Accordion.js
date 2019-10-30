@@ -24,43 +24,21 @@ class AccordionContainer extends React.Component {
   render() {
     return (
       <div>
-        <AccordionCard
-          header="Custom Designs"
-          text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-        eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-        ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-        aliquip ex ea commodo consequat."
-          open={true}
-        />
-        <AccordionCard
-          header="Jewlery Repair"
-          text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-        eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-        ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-        aliquip ex ea commodo consequat."
-          open={false}
-        />
-        <AccordionCard
-          header="Diamond Process"
-          text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-        eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-        ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-        aliquip ex ea commodo consequat."
-          open={false}
-        />
-        <AccordionCard
-          header="Jewlery Care"
-          text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-        eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-        ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-        aliquip ex ea commodo consequat."
-          open={false}
-        />
+        {this.props.content.map(function(content, index) {
+          return (
+            <AccordionCard
+              key={index}
+              title={content.title}
+              body={content.body}
+              open={false}
+            />
+          )
+        })}
       </div>
     )
   }
 }
 
-export const Accordion = () => {
-  return <AccordionContainer />
+export const Accordion = ({ content }) => {
+  return <AccordionContainer content={content} />
 }
