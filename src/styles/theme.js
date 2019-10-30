@@ -19,6 +19,6 @@ export const theme = {
   defaultFont: '"Baskerville", "Sans Serif"',
   defaultHeaderFontColor: '#10255D',
   defaultTransition: 'all 0.2s linear',
-  defaultFontSize: '18px',
-  defaultMobileFontSize: '16px',
+  defaultFontSize: '16px',
+  defaultMobileFontSize: '14px',
 }
