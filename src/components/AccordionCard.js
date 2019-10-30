@@ -6,6 +6,7 @@ const AccordionCardContainer = styled.div`
   &:last-child {
     border: none;
   }
+  padding: 20px;
 `
 
 const AccordionHeader = styled.div`
@@ -14,13 +15,18 @@ const AccordionHeader = styled.div`
     text-align: center;
     padding: 1rem;
     cursor: pointer;
+    margin: 0;
   }
 `
 
 // Placeholder for any necessary styles
 const AccordionText = styled.p`
-  display: ${props => (props.open ? 'inherit' : 'none')};
+  // display: ${props => (props.open ? 'inherit' : 'none')};
+  max-height: ${props => (props.open ? '250px' : '0')};
+  margin-bottom: 0;
+  overflow: hidden;
   color: ${props => props.theme.primaryColor};
+  transition: max-height 0.35s ease-in-out;
 `
 
 class AccordionCard extends React.Component {
