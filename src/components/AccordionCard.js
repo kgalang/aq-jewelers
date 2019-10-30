@@ -19,7 +19,6 @@ const AccordionHeader = styled.div`
   }
 `
 
-// Placeholder for any necessary styles
 const AccordionText = styled.p`
   // display: ${props => (props.open ? 'inherit' : 'none')};
   max-height: ${props => (props.open ? '250px' : '0')};
