@@ -20,6 +20,7 @@ const AccordionHeader = styled.div`
 // Placeholder for any necessary styles
 const AccordionText = styled.p`
   display: ${props => (props.open ? 'inherit' : 'none')};
+  color: ${props => props.theme.primaryColor};
 `
 
 class AccordionCard extends React.Component {
