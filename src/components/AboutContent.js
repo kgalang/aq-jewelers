@@ -22,7 +22,7 @@ const AboutColumn = styled.div`
   }
 `
 
-export const AboutContent = ({ header, body, imgSrc }) => {
+export const AboutContent = ({ header, body, imgSrc, imgTitle }) => {
   return (
     <AboutContainer>
       <AboutRow>
@@ -35,7 +35,7 @@ export const AboutContent = ({ header, body, imgSrc }) => {
           <p>{body}</p>
         </AboutColumn>
         <AboutColumn>
-          <img src={imgSrc} alt="Lorem ipsum" />
+          <img src={imgSrc} alt={imgTitle} />
         </AboutColumn>
       </AboutRow>
     </AboutContainer>
