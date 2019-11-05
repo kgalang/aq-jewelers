@@ -2,13 +2,15 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
 import { Layout, Hero, Accordion, Container } from '../components'
-import HeroImage from '../../static/Hero_1920.jpg'
 
 const Services = ({ data }) => (
   <Layout>
-    <Hero backgroundImage={HeroImage} text="Services" />
+    <Hero
+      backgroundImage={data.prismicServicesPage.data.hero_image.url}
+      text={data.prismicServicesPage.data.hero_text.text}
+    />
     <Container>
-      <Accordion content={data.prismicService.data} />
+      <Accordion services={data.prismicServicesPage.data.services} />
     </Container>
   </Layout>
 )
@@ -21,13 +23,27 @@ export default Services
 
 export const query = graphql`
   query ServicesQuery {
-    prismicService {
+    prismicServicesPage {
       data {
-        service_name {
+        hero_image {
+          url
+        }
+        hero_text {
           text
         }
-        service_description {
-          text
+        services {
+          related_service {
+            document {
+              data {
+                service_name {
+                  text
+                }
+                service_description {
+                  text
+                }
+              }
+            }
+          }
         }
       }
     }
