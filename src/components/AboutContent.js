@@ -16,6 +16,13 @@ const AboutColumn = styled.div`
   flex-basis: 100%;
   ${media.forLargeUp`
     flex: 1;
+    p {
+      padding-right: 0.5rem;
+    }
+    img {
+      width: 100%;
+      padding-left: 0.5rem;
+    }
   `}
   img {
     width: 100%;

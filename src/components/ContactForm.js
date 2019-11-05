@@ -3,6 +3,8 @@ import styled from 'styled-components'
 import { Button } from '../components'
 
 const ContactFormContainer = styled.div`
+  margin-top: 2rem;
+
   h1 {
     text-align: center;
   }
@@ -16,6 +18,8 @@ const ContactFormContainer = styled.div`
   input,
   textarea {
     width: 100%;
+    margin-top: 0.5rem;
+    margin-bottom: 1rem;
     border: 1px solid ${props => props.theme.primaryColor};
   }
 
@@ -24,6 +28,7 @@ const ContactFormContainer = styled.div`
   }
 
   button {
+    margin-bottom: 1rem;
     float: right;
   }
 `

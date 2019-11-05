@@ -1,7 +1,13 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
-import { Layout, Hero, AboutContent, ContactForm } from '../components'
+import {
+  Layout,
+  Hero,
+  AboutContent,
+  ContactForm,
+  Container,
+} from '../components'
 
 const About = ({ data }) => (
   <Layout>
@@ -9,14 +15,15 @@ const About = ({ data }) => (
       backgroundImage={data.prismicAboutPage.data.hero_image.url}
       text={data.prismicAboutPage.data.hero_text.text}
     />
-    {console.log(data)}
-    <AboutContent
-      header={data.prismicAboutPage.data.hero_text.text}
-      body={data.prismicAboutPage.data.about_us_text.text}
-      imgSrc={data.prismicAboutPage.data.section_image.url}
-      imgTitle={data.prismicAboutPage.data.section_image.alt}
-    />
-    <ContactForm></ContactForm>
+    <Container>
+      <AboutContent
+        header={data.prismicAboutPage.data.hero_text.text}
+        body={data.prismicAboutPage.data.about_us_text.text}
+        imgSrc={data.prismicAboutPage.data.section_image.url}
+        imgTitle={data.prismicAboutPage.data.section_image.alt}
+      />
+      <ContactForm></ContactForm>
+    </Container>
   </Layout>
 )
 
