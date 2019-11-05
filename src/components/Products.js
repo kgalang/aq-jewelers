@@ -1,12 +1,30 @@
 import React from 'react'
 import styled from 'styled-components'
+import { media } from '../styles'
+
+const ProductsContainer = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 2rem;
+`
 
 const ProductCard = styled.div`
   background: url(${props => props.url});
   background-size: cover;
   background-position: 50%;
-  height: 250px;
-  width: 250px;
+  flex-grow: 1;
+  width: calc(100% - 2rem);
+  height: 300px;
+  margin: 1rem;
+
+  ${media.forMediumUp`
+    width: calc(50% - 2rem);
+  `};
+
+  ${media.forLargeUp`
+    width: calc(33% - 2rem);
+  `};
 `
 
 const ProductInfo = styled.div`
@@ -15,10 +33,6 @@ const ProductInfo = styled.div`
   transition: ${props => props.theme.defaultTransition};
   color: ${props => props.theme.white};
   opacity: 0;
-  display: -webkit-box;
-  display: -moz-box;
-  display: -ms-flexbox;
-  display: -webkit-flex;
   display: flex;
   align-items: center;
   position: relative;
@@ -30,6 +44,10 @@ const ProductInfo = styled.div`
       rgba(16, 37, 93, 1) 100%
     );
   }
+
+  p {
+    font-size: 200%;
+  }
 `
 const ProductName = styled.div`
   width: 100%;
@@ -38,7 +56,7 @@ const ProductName = styled.div`
 
 const ProductPrice = styled.div`
   position: absolute;
-  bottom: 0;
+  bottom: 1rem;
   width: 100%;
   text-align: center;
 `
@@ -46,7 +64,7 @@ const ProductPrice = styled.div`
 export const Products = ({ products }) => {
   let productsList = products
   return (
-    <div>
+    <ProductsContainer>
       {productsList.map((product, index) => (
         <ProductCard
           key={
@@ -66,7 +84,7 @@ export const Products = ({ products }) => {
           </ProductInfo>
         </ProductCard>
       ))}
-    </div>
+    </ProductsContainer>
   )
 }
 
