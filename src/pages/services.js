@@ -8,7 +8,7 @@ const Services = ({ data }) => (
   <Layout>
     <Hero backgroundImage={HeroImage} text="Services" />
     <Container>
-      <Accordion content={data.servicesJson.accordion} />
+      <Accordion content={data.prismicService.data} />
     </Container>
   </Layout>
 )
@@ -21,15 +21,13 @@ export default Services
 
 export const query = graphql`
   query ServicesQuery {
-    servicesJson {
-      title
-      accordion {
-        title
-        body
-      }
-      content {
-        childMarkdownRemark {
-          html
+    prismicService {
+      data {
+        service_name {
+          text
+        }
+        service_description {
+          text
         }
       }
     }

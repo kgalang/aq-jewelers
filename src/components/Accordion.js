@@ -22,18 +22,15 @@ class AccordionContainer extends React.Component {
   }
 
   render() {
+    let content = this.props.content
     return (
       <div>
-        {this.props.content.map(function(content, index) {
-          return (
-            <AccordionCard
-              key={index}
-              title={content.title}
-              body={content.body}
-              open={false}
-            />
-          )
-        })}
+        <AccordionCard
+          key={content.service_name.text}
+          title={content.service_name.text}
+          body={content.service_description.text}
+          open={false}
+        />
       </div>
     )
   }

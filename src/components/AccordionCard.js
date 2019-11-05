@@ -10,8 +10,7 @@ const AccordionCardContainer = styled.div`
 `
 
 const AccordionHeader = styled.div`
-  h1 {
-    color: ${props => props.theme.primaryColor};
+  h2 {
     text-align: center;
     padding: 1rem;
     cursor: pointer;
@@ -24,7 +23,6 @@ const AccordionText = styled.p`
   max-height: ${props => (props.open ? '250px' : '0')};
   margin-bottom: 0;
   overflow: hidden;
-  color: ${props => props.theme.primaryColor};
   transition: max-height 0.35s ease-in-out;
 `
 
@@ -46,7 +44,7 @@ class AccordionCard extends React.Component {
     return (
       <AccordionCardContainer>
         <AccordionHeader onClick={this.toggleOpen}>
-          <h1>{this.props.title}</h1>
+          <h2>{this.props.title}</h2>
         </AccordionHeader>
         <AccordionText open={this.state.open}>{this.props.body}</AccordionText>
       </AccordionCardContainer>
