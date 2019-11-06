@@ -4,7 +4,10 @@ import { graphql } from 'gatsby'
 
 const ContactPage = ({ data }) => (
   <Layout>
-    <Hero backgroundImage={data.prismicContact.data.hero_image.url} />
+    <Hero
+      backgroundImage={data.prismicContact.data.hero_image.url}
+      text={data.prismicContact.data.hero_text.text}
+    />
     <Container>
       <ContactForm />
     </Container>
@@ -20,6 +23,9 @@ export const query = graphql`
         hero_image {
           url
           alt
+        }
+        hero_text {
+          text
         }
       }
     }
