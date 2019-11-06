@@ -5,11 +5,10 @@ import { media } from '../styles'
 const ProductsContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: space-evenly;
 `
 
 const Card = styled.div`
-  flex-grow: 1;
   width: calc(100% - 2rem);
   margin: 1rem;
   height: auto;
