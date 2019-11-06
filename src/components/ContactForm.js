@@ -7,6 +7,7 @@ const ContactFormContainer = styled.div`
 
   h1 {
     text-align: center;
+    margin-bottom: 1rem;
   }
 
   label,

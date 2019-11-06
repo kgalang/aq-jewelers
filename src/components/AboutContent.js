@@ -14,19 +14,27 @@ const AboutRow = styled.div`
 
 const AboutColumn = styled.div`
   flex-basis: 100%;
-  ${media.forLargeUp`
-    flex: 1;
-    p {
-      padding-right: 0.5rem;
-    }
-    img {
-      width: 100%;
-      padding-left: 0.5rem;
-    }
-  `}
+  h1 {
+    margin-bottom: 1rem;
+  }
   img {
     width: 100%;
   }
+  ${media.forSmallMediumOnly`
+    p {
+      margin-bottom: 2rem;
+    }
+  `};
+
+  ${media.forLargeUp`
+    flex: 1;
+    p {
+      padding-right: 2rem;
+    }
+    img {
+      padding-left: 2rem;
+    }
+  `}
 `
 
 export const AboutContent = ({ header, body, imgSrc, imgTitle }) => {
