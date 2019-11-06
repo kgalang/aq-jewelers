@@ -6,7 +6,6 @@ const ProductsContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  margin: 2rem;
 `
 
 const ProductCard = styled.div`
