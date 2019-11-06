@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
-import { Layout, Hero, Container, Products } from '../components'
+import { Layout, Hero, Container, Products, ContactForm } from '../components'
 
 const Index = ({ data }) => (
   <Layout>
@@ -15,6 +15,7 @@ const Index = ({ data }) => (
         products={data.prismicHomepage.data.products}
         highlight={data.prismicHomepage.data.homepage_highlight}
       />
+      <ContactForm />
     </Container>
   </Layout>
 )
