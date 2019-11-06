@@ -11,7 +11,10 @@ const Index = ({ data }) => (
       buttonText="Learn More"
     />
     <Container>
-      <Products products={data.prismicHomepage.data.products}></Products>
+      <Products
+        products={data.prismicHomepage.data.products}
+        highlight={data.prismicHomepage.data.homepage_highlight}
+      />
     </Container>
   </Layout>
 )
@@ -31,6 +34,9 @@ export const query = graphql`
           url
         }
         hero_text {
+          text
+        }
+        homepage_highlight {
           text
         }
         products {
