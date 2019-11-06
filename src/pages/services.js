@@ -11,7 +11,7 @@ const Services = ({ data }) => (
     />
     <Container>
       <Accordion services={data.prismicServicesPage.data.services} />
-      <ContactForm></ContactForm>
+      <ContactForm />
     </Container>
   </Layout>
 )
