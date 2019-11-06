@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
-import { Layout, Hero, Accordion, Container } from '../components'
+import { Layout, Hero, Accordion, Container, ContactForm } from '../components'
 
 const Services = ({ data }) => (
   <Layout>
@@ -11,6 +11,7 @@ const Services = ({ data }) => (
     />
     <Container>
       <Accordion services={data.prismicServicesPage.data.services} />
+      <ContactForm></ContactForm>
     </Container>
   </Layout>
 )
