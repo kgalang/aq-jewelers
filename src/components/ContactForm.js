@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Button } from '../components'
+import { media } from '../styles'
 
 const ContactFormContainer = styled.div`
   margin-top: 2rem;
@@ -30,8 +31,14 @@ const ContactFormContainer = styled.div`
 
   button {
     margin-bottom: 1rem;
-    float: right;
   }
+`
+
+const ButtonContainer = styled.div`
+  text-align: right;
+  ${media.forSmallOnly`
+    text-align: center;
+  `};
 `
 
 export const ContactForm = () => (
@@ -54,7 +61,9 @@ export const ContactForm = () => (
         Message: <textarea name="message" id="message" rows="5" />
       </label>
       {/* <button type="submit">Submit</button> */}
-      <Button type="submit">Submit</Button>
+      <ButtonContainer>
+        <Button type="submit">Submit</Button>
+      </ButtonContainer>
     </form>
   </ContactFormContainer>
 )
