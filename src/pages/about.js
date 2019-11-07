@@ -10,7 +10,7 @@ import {
 } from '../components'
 
 const About = ({ data }) => (
-  <Layout footer={data.prismicFooter.data}>
+  <Layout>
     <Hero
       backgroundImage={data.prismicAboutPage.data.hero_image.url}
       text={data.prismicAboutPage.data.hero_text.text}
@@ -50,25 +50,6 @@ export const query = graphql`
         section_image {
           url
           alt
-        }
-      }
-    }
-    prismicFooter {
-      data {
-        address_line_1 {
-          text
-        }
-        address_line_2 {
-          text
-        }
-        email {
-          text
-        }
-        phone_number {
-          text
-        }
-        footer_text {
-          text
         }
       }
     }

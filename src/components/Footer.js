@@ -1,4 +1,5 @@
 import React from 'react'
+import { StaticQuery, graphql } from 'gatsby'
 import styled from 'styled-components'
 import { Container } from '../components'
 import InitialsLogo from '../assets/aq-logo.svg'
@@ -37,55 +38,93 @@ const LogoContainer = styled.div`
 const Logo = styled(InitialsLogo)`
   fill: ${props => props.theme.white};
   height: 5rem;
-  margin: -2rem 0 2rem 0;
+  margin: -1rem 0 2rem 0;
 `
 
-export const Footer = ({ content }) => (
-  <FooterContainer>
-    {console.log(content)}
-    <Container>
-      <FooterRow>
-        <Address>
-          <p>{content.address_line_1.text}</p>
-          <p>{content.address_line_2.text}</p>
-          <p>
-            <a href={'mailto:' + content.email.text}>{content.email.text}</a>
-          </p>
-          <p>
-            {/* replace() removing any parentheses or whitespace to create href for phone number */}
-            <a
-              href={
-                'tel:+1' + content.phone_number.text.replace(/[^+\d]+/g, '')
-              }
-            >
-              {content.phone_number.text}
-            </a>
-          </p>
-        </Address>
-        <Nav>
-          <p>{content.address_line_1.text}</p>
-          <p>{content.address_line_2.text}</p>
-          <p>
-            <a href={'mailto:' + content.email.text}>{content.email.text}</a>
-          </p>
-          <p>
-            {/* replace() removing any parentheses or whitespace to create href for phone number */}
-            <a
-              href={
-                'tel:+1' + content.phone_number.text.replace(/[^+\d]+/g, '')
-              }
-            >
-              {content.phone_number.text}
-            </a>
-          </p>
-        </Nav>
-      </FooterRow>
-      <FooterRow>
-        <LogoContainer>
-          <Logo></Logo>
-          <p>{content.footer_text.text}</p>
-        </LogoContainer>
-      </FooterRow>
-    </Container>
-  </FooterContainer>
+export const Footer = () => (
+  <StaticQuery
+    query={graphql`
+      query FooterQuery {
+        prismicFooter {
+          data {
+            address_line_1 {
+              text
+            }
+            address_line_2 {
+              text
+            }
+            email {
+              text
+            }
+            phone_number {
+              text
+            }
+            footer_text {
+              text
+            }
+          }
+        }
+      }
+    `}
+    render={data => (
+      <FooterContainer>
+        <Container>
+          <FooterRow>
+            <Address>
+              <p>{data.prismicFooter.data.address_line_1.text}</p>
+              <p>{data.prismicFooter.data.address_line_2.text}</p>
+              <p>
+                <a href={'mailto:' + data.prismicFooter.data.email.text}>
+                  {data.prismicFooter.data.email.text}
+                </a>
+              </p>
+              <p>
+                {/* replace() removing any parentheses or whitespace to create href for phone number */}
+                <a
+                  href={
+                    'tel:+1' +
+                    data.prismicFooter.data.phone_number.text.replace(
+                      /[^+\d]+/g,
+                      '',
+                    )
+                  }
+                >
+                  {data.prismicFooter.data.phone_number.text}
+                </a>
+              </p>
+            </Address>
+            <Nav>
+              <p>{data.prismicFooter.data.address_line_1.text}</p>
+              <p>{data.prismicFooter.data.address_line_2.text}</p>
+              <p>
+                <a href={'mailto:' + data.prismicFooter.data.email.text}>
+                  {data.prismicFooter.data.email.text}
+                </a>
+              </p>
+              <p>
+                {/* replace() removing any parentheses or whitespace to create href for phone number */}
+                <a
+                  href={
+                    'tel:+1' +
+                    data.prismicFooter.data.phone_number.text.replace(
+                      /[^+\d]+/g,
+                      '',
+                    )
+                  }
+                >
+                  {data.prismicFooter.data.phone_number.text}
+                </a>
+              </p>
+            </Nav>
+          </FooterRow>
+          <FooterRow>
+            <LogoContainer>
+              <Logo></Logo>
+              <p>{data.prismicFooter.data.footer_text.text}</p>
+            </LogoContainer>
+          </FooterRow>
+        </Container>
+      </FooterContainer>
+    )}
+  />
 )
