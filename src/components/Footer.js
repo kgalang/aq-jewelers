@@ -1,8 +1,32 @@
 import React from 'react'
 import { StaticQuery, graphql } from 'gatsby'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import { Container } from '../components'
+import { Link } from 'gatsby'
 import InitialsLogo from '../assets/aq-logo.svg'
+
+const ROUTES = [
+  {
+    route: '/',
+    text: 'Home',
+    as: Link,
+  },
+  {
+    route: '/services',
+    text: 'Services',
+    as: Link,
+  },
+  {
+    route: '/about',
+    text: 'About',
+    as: Link,
+  },
+  {
+    route: '/contact',
+    text: 'Contact',
+    as: Link,
+  },
+]
 
 const FooterContainer = styled.div`
   margin-top: 2rem;
@@ -41,7 +65,22 @@ const Logo = styled(InitialsLogo)`
   margin: -1rem 0 2rem 0;
 `
 
-export const Footer = () => (
+const NavLinkStyles = css`
+  color: ${props => props.theme.white} !important;
+  text-decoration: none;
+  position: relative;
+  cursor: pointer;
+`
+
+const createRouteLink = as => styled(as)`
+  ${NavLinkStyles};
+`
+
+const RouteLinkContainer = styled.div`
+  margin-bottom: 1rem;
+`
+
+export const Footer = ({ routes = ROUTES }) => (
   <StaticQuery
     query={graphql`
       query FooterQuery {
@@ -94,27 +133,20 @@ export const Footer = () => (
               </p>
             </Address>
             <Nav>
-              <p>{data.prismicFooter.data.address_line_1.text}</p>
-              <p>{data.prismicFooter.data.address_line_2.text}</p>
-              <p>
-                <a href={'mailto:' + data.prismicFooter.data.email.text}>
-                  {data.prismicFooter.data.email.text}
-                </a>
-              </p>
-              <p>
-                {/* replace() removing any parentheses or whitespace to create href for phone number */}
-                <a
-                  href={
-                    'tel:+1' +
-                    data.prismicFooter.data.phone_number.text.replace(
-                      /[^+\d]+/g,
-                      '',
-                    )
-                  }
-                >
-                  {data.prismicFooter.data.phone_number.text}
-                </a>
-              </p>
+              {routes.map(
+                ({ route, text, as = 'a', renderLinkContent, ...rest }) => {
+                  // The controls what the link renders as so it works with Reach, React Router, and normal
+                  const RouteLink = createRouteLink(as)
+
+                  return (
+                    <RouteLinkContainer key={route}>
+                      <RouteLink to={route} {...rest}>
+                        {renderLinkContent ? renderLinkContent() : text}
+                      </RouteLink>
+                    </RouteLinkContainer>
+                  )
+                },
+              )}
             </Nav>
           </FooterRow>
           <FooterRow>
