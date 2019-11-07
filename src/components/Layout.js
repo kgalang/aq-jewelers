@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import PropTypes from 'prop-types'
 import { ThemeProvider } from 'styled-components'
 import { GlobalStyle, theme } from '../styles'
 import { Nav, Footer } from '../components'
@@ -22,4 +23,8 @@ export const Layout = ({ children, footer }) => {
       </ThemeProvider>
     </LayoutWrapper>
   )
+}
+
+Layout.propTypes = {
+  footer: PropTypes.object.isRequired,
 }
