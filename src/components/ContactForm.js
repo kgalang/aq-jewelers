@@ -4,7 +4,7 @@ import { Button } from '../components'
 import { media } from '../styles'
 
 const ContactFormContainer = styled.div`
-  margin-top: 2rem;
+  margin: 2rem 0;
 
   h1 {
     text-align: center;
