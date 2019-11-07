@@ -29,7 +29,6 @@ const ROUTES = [
 ]
 
 const FooterContainer = styled.div`
-  margin-top: 2rem;
   background: ${props => props.theme.primaryColor};
   * {
     color: ${props => props.theme.white};
