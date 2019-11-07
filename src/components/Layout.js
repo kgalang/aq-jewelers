@@ -8,7 +8,7 @@ const LayoutWrapper = styled.div`
   min-height: 100vh;
 `
 
-export const Layout = ({ children }) => {
+export const Layout = ({ children, footer }) => {
   return (
     <LayoutWrapper>
       <ThemeProvider theme={theme}>
@@ -17,7 +17,7 @@ export const Layout = ({ children }) => {
           <GlobalStyle />
           <Nav />
           {children}
-          <Footer />
+          <Footer content={footer} />
         </div>
       </ThemeProvider>
     </LayoutWrapper>

@@ -10,16 +10,19 @@ const FooterContainer = styled.div`
   }
 `
 
-export const Footer = () => (
+export const Footer = ({ content }) => (
   <FooterContainer>
     <Container>
-      <p>42841 Creek View Plaza #125</p>
-      <p>Ashburn, VA 20147</p>
+      <p>{content.address_line_1.text}</p>
+      <p>{content.address_line_2.text}</p>
       <p>
-        <a href="mailto:aqj.2015@gmail.com">aqj.2015@gmail.com</a>
+        <a href={'mailto:' + content.email.text}>{content.email.text}</a>
       </p>
       <p>
-        <a href="tel:+17037268938">(703) 726-8938</a>
+        {/* replace() removing any parentheses or whitespace to create href for phone number */}
+        <a href={'tel:+1' + content.phone_number.text.replace(/[^+\d]+/g, '')}>
+          {content.phone_number.text}
+        </a>
       </p>
     </Container>
   </FooterContainer>

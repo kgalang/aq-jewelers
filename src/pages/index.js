@@ -4,7 +4,7 @@ import { graphql } from 'gatsby'
 import { Layout, Hero, Container, Products, ContactForm } from '../components'
 
 const Index = ({ data }) => (
-  <Layout>
+  <Layout footer={data.prismicFooter.data}>
     <Hero
       backgroundImage={data.prismicHomepage.data.hero_image.url}
       text={data.prismicHomepage.data.hero_text.text}
@@ -55,6 +55,25 @@ export const query = graphql`
               }
             }
           }
+        }
+      }
+    }
+    prismicFooter {
+      data {
+        address_line_1 {
+          text
+        }
+        address_line_2 {
+          text
+        }
+        email {
+          text
+        }
+        phone_number {
+          text
+        }
+        footer_text {
+          text
         }
       }
     }
