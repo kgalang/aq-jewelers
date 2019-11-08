@@ -22,7 +22,7 @@ const About = ({ data }) => (
         imgSrc={data.prismicAboutPage.data.section_image.url}
         imgTitle={data.prismicAboutPage.data.section_image.alt}
       />
-      <ContactForm></ContactForm>
+      <ContactForm />
     </Container>
   </Layout>
 )
