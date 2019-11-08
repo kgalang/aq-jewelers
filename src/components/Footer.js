@@ -56,6 +56,7 @@ const Nav = styled(Aside)`
 
 const LogoContainer = styled.div`
   text-align: center;
+  width: 100%;
 `
 
 const Logo = styled(InitialsLogo)`
