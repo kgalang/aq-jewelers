@@ -49,19 +49,6 @@ const FooterInfo = styled.div`
   }
 `
 
-// const Aside = styled.div`
-//   flex: 1;
-// `
-
-// const Address = styled(Aside)`
-//   flex: 1;
-// `
-
-// const Nav = styled(Aside)`
-//   flex: 1;
-//   text-align: right;
-// `
-
 const Address = styled.div``
 
 const Nav = styled.div`
