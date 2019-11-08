@@ -1,27 +1,33 @@
 import React from 'react'
-import { Layout } from '../components/Layout'
+import { Layout, Hero, Container, ContactForm } from '../components'
+import { graphql } from 'gatsby'
 
-const ContactPage = () => (
+const ContactPage = ({ data }) => (
   <Layout>
-    <form
-      name="contact"
-      method="POST"
-      data-netlify="true"
-      data-netlify-honeypot="bot-field"
-    >
-      <input type="hidden" name="bot-field" />
-      <label htmlFor="name">
-        Name: <input type="text" name="name" id="name" />
-      </label>
-      <label htmlFor="email">
-        Your Email: <input type="email" name="email" id="email" />
-      </label>
-      <label htmlFor="message">
-        Message: <textarea name="message" id="message" />
-      </label>
-      <button type="submit">Submit</button>
-    </form>
+    <Hero
+      backgroundImage={data.prismicContact.data.hero_image.url}
+      text={data.prismicContact.data.hero_text.text}
+    />
+    <Container>
+      <ContactForm />
+    </Container>
   </Layout>
 )
 
 export default ContactPage
+
+export const query = graphql`
+  query ContactQuery {
+    prismicContact {
+      data {
+        hero_image {
+          url
+          alt
+        }
+        hero_text {
+          text
+        }
+      }
+    }
+  }
+`
