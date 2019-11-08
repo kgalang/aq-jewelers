@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 
 const ContentContainer = styled.div`
-  padding: 2.5% 10%;
+  padding: 5% 10%;
 `
 
 export const Container = props => {
