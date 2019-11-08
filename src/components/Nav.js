@@ -43,6 +43,10 @@ const NavContainer = styled.div`
     padding: 0 1rem;
     flex-direction: row;
     justify-content: space-between;
+    position: fixed;
+    width: 100%;
+    border-bottom: 1px solid ${props => props.theme.defaultFontColor};
+    top: 0;
   `}
 `
 

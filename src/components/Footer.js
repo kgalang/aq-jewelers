@@ -43,22 +43,46 @@ const FooterContent = styled.div`
 
 const FooterInfo = styled.div`
   display: flex;
-  padding-bottom: 2rem;
+  flex-flow: row wrap;
   > * {
     flex: 1;
   }
 `
 
-const Address = styled.div``
+const Address = styled.div`
+  ${media.forSmallOnly`
+    flex: 1 100%;
+    text-align: center;
+    p:last-child {
+      margin: 0;
+    }
+  `}
+  ${media.forMediumUp`
+    order: 1;
+  `}
+`
 
 const Nav = styled.div`
   text-align: right;
+  ${media.forSmallOnly`
+    display: none;
+  `}
+  ${media.forMediumUp`
+    order: 3;
+  `}
 `
 
 const LogoContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  ${media.forSmallOnly`
+    flex: 1 100%;
+    margin-bottom: 2rem;
+  `}
+  ${media.forMediumUp`
+    order: 2;
+  `}
 `
 
 const Logo = styled(InitialsLogo)`
@@ -71,6 +95,7 @@ const Logo = styled(InitialsLogo)`
 `
 
 const FooterDisclaimer = styled.div`
+  margin-top: 2rem;
   text-align: center;
   p {
     margin: 0;
@@ -122,6 +147,9 @@ export const Footer = ({ routes = ROUTES }) => (
         <Container>
           <FooterContent>
             <FooterInfo>
+              <LogoContainer>
+                <Logo></Logo>
+              </LogoContainer>
               <Address>
                 <p>{data.prismicFooter.data.address_line_1.text}</p>
                 <p>{data.prismicFooter.data.address_line_2.text}</p>
@@ -145,9 +173,6 @@ export const Footer = ({ routes = ROUTES }) => (
                   </a>
                 </p>
               </Address>
-              <LogoContainer>
-                <Logo></Logo>
-              </LogoContainer>
               <Nav>
                 {routes.map(
                   ({ route, text, as = 'a', renderLinkContent, ...rest }) => {
