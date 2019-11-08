@@ -3,7 +3,7 @@ import { StaticQuery, graphql } from 'gatsby'
 import styled, { css } from 'styled-components'
 import { Container } from '../components'
 import { Link } from 'gatsby'
-import InitialsLogo from '../assets/aq-logo.svg'
+import InitialsLogo from '../assets/primary-logo.svg'
 import { media } from '../styles'
 
 const ROUTES = [
@@ -88,10 +88,6 @@ const LogoContainer = styled.div`
 const Logo = styled(InitialsLogo)`
   fill: ${props => props.theme.white};
   height: 5rem;
-
-  ${media.forSmallOnly`
-    height: 2.5rem;
-  `}
 `
 
 const FooterDisclaimer = styled.div`
