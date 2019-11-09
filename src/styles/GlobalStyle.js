@@ -8,6 +8,11 @@ export const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
   }
 
+  *:focus {
+    outline: 3px solid ${props => props.theme.secondaryColor};
+    outline-offset: 5px;
+  }
+
   html {
     font-size: ${props => props.theme.defaultFontSize};
 
