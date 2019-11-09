@@ -37,6 +37,7 @@ const NavContainer = styled.div`
   align-items: center;
   justify-content: center;
   padding: 0 2rem;
+  z-index: 1;
 
   ${media.forSmallOnly`
     height: ${props => props.theme.mobileHeaderHeight};
@@ -45,7 +46,7 @@ const NavContainer = styled.div`
     justify-content: space-between;
     position: fixed;
     width: 100%;
-    border-bottom: 1px solid ${props => props.theme.defaultFontColor};
+    border-bottom: 1px solid ${props => props.theme.primaryColor};
     top: 0;
   `}
 `
