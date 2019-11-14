@@ -13,7 +13,7 @@ const Index = ({ data }) => (
     <Container>
       <Products
         products={data.prismicHomepage.data.products}
-        highlight={data.prismicHomepage.data.homepage_highlight}
+        highlight={data.prismicHomepage.data.welcome_highlight}
       />
       <ContactForm />
     </Container>
@@ -37,16 +37,18 @@ export const query = graphql`
         hero_text {
           text
         }
-        homepage_highlight {
+        welcome_highlight {
           text
+          html
         }
         products {
           related_products {
             document {
               data {
                 price
-                product_name {
+                product {
                   text
+                  html
                 }
                 image {
                   url
