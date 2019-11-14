@@ -47,7 +47,7 @@ export const AboutContent = ({ header, body, imgSrc, imgTitle }) => {
       </AboutRow>
       <AboutRow>
         <AboutColumn>
-          <p>{body}</p>
+          <div dangerouslySetInnerHTML={{ __html: body }} />
         </AboutColumn>
         <AboutColumn>
           <img src={imgSrc} alt={imgTitle} />

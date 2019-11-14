@@ -18,7 +18,7 @@ const About = ({ data }) => (
     <Container>
       <AboutContent
         header={data.prismicAboutPage.data.hero_text.text}
-        body={data.prismicAboutPage.data.about_us_text.text}
+        body={data.prismicAboutPage.data.about_us_text.html}
         imgSrc={data.prismicAboutPage.data.section_image.url}
         imgTitle={data.prismicAboutPage.data.section_image.alt}
       />
@@ -45,7 +45,7 @@ export const query = graphql`
           text
         }
         about_us_text {
-          text
+          html
         }
         section_image {
           url

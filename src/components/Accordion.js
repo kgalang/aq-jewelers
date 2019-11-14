@@ -34,7 +34,7 @@ class AccordionContainer extends React.Component {
             }
             title={service.related_service.document[0].data.service_name.text}
             body={
-              service.related_service.document[0].data.service_description.text
+              service.related_service.document[0].data.service_description.html
             }
             open={false}
           />

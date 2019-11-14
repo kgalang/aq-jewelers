@@ -104,17 +104,17 @@ export const Products = ({ products, highlight }) => {
       {productsList.map((product, index) =>
         product.related_products ? (
           <ProductCard
-            key={
-              index +
-              product.related_products.document[0].data.product_name.text
-            }
+            key={index + product.related_products.document[0].data.product.text}
             url={product.related_products.document[0].data.image.url}
           >
             <ProductInfo>
               <ProductName>
-                <p>
-                  {product.related_products.document[0].data.product_name.text}
-                </p>
+                <div
+                  dangerouslySetInnerHTML={{
+                    __html:
+                      product.related_products.document[0].data.product.html,
+                  }}
+                />
               </ProductName>
               <ProductPrice>
                 <p>${+product.related_products.document[0].data.price}</p>
@@ -123,7 +123,7 @@ export const Products = ({ products, highlight }) => {
           </ProductCard>
         ) : (
           <TextCard key={index + product.text}>
-            <p>{product.text}</p>
+            <div dangerouslySetInnerHTML={{ __html: product.html }} />
           </TextCard>
         ),
       )}

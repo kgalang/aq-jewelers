@@ -119,20 +119,22 @@ export const Footer = ({ routes = ROUTES }) => (
       query FooterQuery {
         prismicFooter {
           data {
-            address_line_1 {
-              text
+            address_1 {
+              html
             }
-            address_line_2 {
-              text
+            address_2 {
+              html
             }
-            email {
+            email_address {
               text
+              html
             }
-            phone_number {
+            phone {
               text
+              html
             }
-            footer_text {
-              text
+            additional_footer_text {
+              html
             }
           }
         }
@@ -147,11 +149,27 @@ export const Footer = ({ routes = ROUTES }) => (
                 <Logo></Logo>
               </LogoContainer>
               <Address>
-                <p>{data.prismicFooter.data.address_line_1.text}</p>
-                <p>{data.prismicFooter.data.address_line_2.text}</p>
+                <div
+                  dangerouslySetInnerHTML={{
+                    __html: data.prismicFooter.data.address_1.html,
+                  }}
+                />
+                <div
+                  dangerouslySetInnerHTML={{
+                    __html: data.prismicFooter.data.address_2.html,
+                  }}
+                />
                 <p>
-                  <a href={'mailto:' + data.prismicFooter.data.email.text}>
-                    {data.prismicFooter.data.email.text}
+                  <a
+                    href={
+                      'mailto:' + data.prismicFooter.data.email_address.text
+                    }
+                  >
+                    <div
+                      dangerouslySetInnerHTML={{
+                        __html: data.prismicFooter.data.email_address.html,
+                      }}
+                    />
                   </a>
                 </p>
                 <p>
@@ -159,13 +177,14 @@ export const Footer = ({ routes = ROUTES }) => (
                   <a
                     href={
                       'tel:+1' +
-                      data.prismicFooter.data.phone_number.text.replace(
-                        /[^+\d]+/g,
-                        '',
-                      )
+                      data.prismicFooter.data.phone.text.replace(/[^+\d]+/g, '')
                     }
                   >
-                    {data.prismicFooter.data.phone_number.text}
+                    <div
+                      dangerouslySetInnerHTML={{
+                        __html: data.prismicFooter.data.phone.html,
+                      }}
+                    />
                   </a>
                 </p>
               </Address>
@@ -187,7 +206,11 @@ export const Footer = ({ routes = ROUTES }) => (
               </Nav>
             </FooterInfo>
             <FooterDisclaimer>
-              <p>{data.prismicFooter.data.footer_text.text}</p>
+              <div
+                dangerouslySetInnerHTML={{
+                  __html: data.prismicFooter.data.additional_footer_text.html,
+                }}
+              />
             </FooterDisclaimer>
           </FooterContent>
         </Container>
