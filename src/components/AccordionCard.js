@@ -46,7 +46,9 @@ class AccordionCard extends React.Component {
         <AccordionHeader onClick={this.toggleOpen}>
           <h2>{this.props.title}</h2>
         </AccordionHeader>
-        <AccordionText open={this.state.open}>{this.props.body}</AccordionText>
+        <AccordionText open={this.state.open}>
+          <div dangerouslySetInnerHTML={{ __html: this.props.body }} />
+        </AccordionText>
       </AccordionCardContainer>
     )
   }
