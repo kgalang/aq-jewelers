@@ -19,7 +19,7 @@ const AccordionHeader = styled.div`
 `
 
 const AccordionText = styled.div`
-  max-height: ${props => (props.open ? '100vh' : '0')};
+  max-height: ${props => (props.open ? '500vh' : '0')};
   margin-bottom: 0;
   overflow: hidden;
   transition: max-height 0.35s ease-in-out;
