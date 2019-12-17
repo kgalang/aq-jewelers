@@ -1,17 +1,29 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
-import { Layout, Hero } from '../components'
-import HeroImage from '../../static/Hero_1920.jpg'
+import {
+  Layout,
+  Hero,
+  AboutContent,
+  ContactForm,
+  Container,
+} from '../components'
 
 const About = ({ data }) => (
   <Layout>
-    <Hero backgroundImage={HeroImage} text='About Us' />
-    <div
-      dangerouslySetInnerHTML={{
-        __html: data.aboutJson.content.childMarkdownRemark.html,
-      }}
+    <Hero
+      backgroundImage={data.prismicAboutPage.data.hero_image.url}
+      text={data.prismicAboutPage.data.hero_text.text}
     />
+    <Container>
+      <AboutContent
+        header={data.prismicAboutPage.data.hero_text.text}
+        body={data.prismicAboutPage.data.about_us_text.html}
+        imgSrc={data.prismicAboutPage.data.section_image.url}
+        imgTitle={data.prismicAboutPage.data.section_image.alt}
+      />
+      <ContactForm />
+    </Container>
   </Layout>
 )
 
@@ -23,11 +35,21 @@ export default About
 
 export const query = graphql`
   query AboutQuery {
-    aboutJson {
-      title
-      content {
-        childMarkdownRemark {
+    prismicAboutPage {
+      data {
+        hero_image {
+          url
+          alt
+        }
+        hero_text {
+          text
+        }
+        about_us_text {
           html
+        }
+        section_image {
+          url
+          alt
         }
       }
     }

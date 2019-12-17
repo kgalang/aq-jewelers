@@ -1,17 +1,22 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
-import { Layout, Hero } from '../components'
-import HeroImage from '../../static/Hero_1920.jpg'
+import { Layout, Hero, Container, Products, ContactForm } from '../components'
 
 const Index = ({ data }) => (
   <Layout>
     <Hero
-      backgroundImage={HeroImage}
-      text="Lorum Ipsum"
+      backgroundImage={data.prismicHomepage.data.hero_image.url}
+      text={data.prismicHomepage.data.hero_text.text}
       buttonText="Learn More"
     />
-    {JSON.stringify(data)}
+    <Container>
+      <Products
+        products={data.prismicHomepage.data.products}
+        highlight={data.prismicHomepage.data.welcome_highlight}
+      />
+      <ContactForm />
+    </Container>
   </Layout>
 )
 
@@ -32,13 +37,18 @@ export const query = graphql`
         hero_text {
           text
         }
+        welcome_highlight {
+          text
+          html
+        }
         products {
           related_products {
             document {
               data {
                 price
-                product_name {
+                product {
                   text
+                  html
                 }
                 image {
                   url
