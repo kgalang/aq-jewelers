@@ -11,33 +11,21 @@ const ROUTES = [
     route: '/',
     text: 'Home',
     as: Link,
-    get selected() {
-      return this.route === location.pathname
-    },
   },
   {
     route: '/services',
     text: 'Services',
     as: Link,
-    get selected() {
-      return this.route === location.pathname
-    },
   },
   {
     route: '/about',
     text: 'About',
     as: Link,
-    get selected() {
-      return this.route === location.pathname
-    },
   },
   {
     route: '/contact',
     text: 'Contact',
     as: Link,
-    get selected() {
-      return this.route === location.pathname
-    },
   },
 ]
 
@@ -49,12 +37,17 @@ const NavContainer = styled.div`
   align-items: center;
   justify-content: center;
   padding: 0 2rem;
+  z-index: 1;
 
   ${media.forSmallOnly`
     height: ${props => props.theme.mobileHeaderHeight};
     padding: 0 1rem;
     flex-direction: row;
     justify-content: space-between;
+    position: fixed;
+    width: 100%;
+    border-bottom: 1px solid ${props => props.theme.primaryColor};
+    top: 0;
   `}
 `
 
@@ -175,7 +168,6 @@ export const NavComponent = ({
               route,
               text,
               as = 'a',
-              selected = false,
               renderLinkContent,
               onClick = () => null,
               ...rest
@@ -187,7 +179,6 @@ export const NavComponent = ({
                 <div key={route}>
                   <RouteLink
                     to={route}
-                    className={selected ? 'selected' : ''}
                     onClick={() => {
                       setHamburgerOpen(false)
 

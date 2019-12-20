@@ -17,6 +17,10 @@ const sizes = {
     max: false,
     width: 992,
   },
+  forXLargeUp: {
+    max: false,
+    width: 1200,
+  },
 }
 
 // Iterate through the sizes and create a media template

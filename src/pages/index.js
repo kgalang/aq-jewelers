@@ -1,14 +1,22 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
-import { Layout, Hero } from '../components'
-import HeroImage from '../../static/Hero_1920.jpg'
+import { Layout, Hero, Container, Products, ContactForm } from '../components'
 
 const Index = ({ data }) => (
   <Layout>
-    <Hero backgroundImage={HeroImage} text='Lorum Ipsum' buttonText='Learn More' />
-    {data.homeJson.content.childMarkdownRemark.rawMarkdownBody}
-    {JSON.stringify(data.homeJson.gallery)}
+    <Hero
+      backgroundImage={data.prismicHomepage.data.hero_image.url}
+      text={data.prismicHomepage.data.hero_text.text}
+      buttonText="Learn More"
+    />
+    <Container>
+      <Products
+        products={data.prismicHomepage.data.products}
+        highlight={data.prismicHomepage.data.welcome_highlight}
+      />
+      <ContactForm />
+    </Container>
   </Layout>
 )
 
@@ -20,21 +28,33 @@ export default Index
 
 export const query = graphql`
   query HomepageQuery {
-    homeJson {
-      title
-      content {
-        childMarkdownRemark {
-          html
-          rawMarkdownBody
+    prismicHomepage {
+      data {
+        hero_image {
+          alt
+          url
         }
-      }
-      gallery {
-        title
-        copy
-        image {
-          childImageSharp {
-            fluid(maxHeight: 500, quality: 90) {
-              ...GatsbyImageSharpFluid_withWebp
+        hero_text {
+          text
+        }
+        welcome_highlight {
+          text
+          html
+        }
+        products {
+          related_products {
+            document {
+              data {
+                price
+                product {
+                  text
+                  html
+                }
+                image {
+                  url
+                  alt
+                }
+              }
             }
           }
         }

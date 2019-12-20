@@ -8,6 +8,10 @@ export const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
   }
 
+  :focus {
+    outline: 3px solid ${props => props.theme.secondaryColor};
+  }
+
   html {
     font-size: ${props => props.theme.defaultFontSize};
 
@@ -29,11 +33,19 @@ export const GlobalStyle = createGlobalStyle`
     }
 
     h1 {
-      font-size: 1.7rem;
+      font-size: 4.5rem;
+
+      ${media.forSmallOnly`
+        font-size: 3.5rem;
+      `}
     }
 
     h2 {
-      font-size: 1.4rem;
+      font-size: 2.3rem;
+
+      ${media.forSmallOnly`
+        font-size: 2rem;
+      `}
     }
 
     hr {
