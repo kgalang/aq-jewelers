@@ -67,14 +67,14 @@ const ProductInfo = styled.div`
   display: flex;
   align-items: center;
   position: relative;
-  &:hover {
+  /* &:hover {
     opacity: 1;
     background: linear-gradient(
       180deg,
       rgba(16, 37, 93, 0) 0%,
       rgba(16, 37, 93, 1) 100%
     );
-  }
+  } */
 
   p {
     font-size: 200%;
