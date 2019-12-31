@@ -41,6 +41,10 @@ const TextCard = styled(Card)`
   align-items: center;
   text-align: center;
   padding: 2rem;
+  div {
+    width: 100%;
+  }
+
   p {
     font-size: 150%;
   }

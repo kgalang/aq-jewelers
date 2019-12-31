@@ -4,7 +4,7 @@ module.exports = {
   siteTitle: 'AQ Jewelers',
   siteTitleShort: 'AQJ',
   siteDescription: 'AQ Jewelers',
-  siteUrl: 'https://gu.fabianschultz.com',
+  siteUrl: 'https://www.aqjewelers.com',
   themeColor: '#000',
   backgroundColor: '#fff',
   pathPrefix: null,
