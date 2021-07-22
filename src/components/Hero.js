@@ -48,7 +48,7 @@ export const Hero = ({ backgroundImage, text, buttonText }) => {
     <HeroContainer backgroundImage={backgroundImage}>
       <HeroContentContainer>
         {text && <HeroHeaderText>{text}</HeroHeaderText>}
-        {buttonText && <div><Button>{buttonText}</Button></div>}
+        {/* {buttonText && <div><Button>{buttonText}</Button></div>} */}
       </HeroContentContainer>
     </HeroContainer>
   )
